@@ -79,10 +79,9 @@ namespace CSVPaste
         public void AddSkipLoading()
         {
             var timer = new Timer(2000);
+            timer.AutoReset = false;
             timer.Elapsed += (sender, args) =>
             {
-                timer.Stop();
-
                 var myPackage = UserRegistryRoot.CreateSubKey(@"Packages\{" + PackageGuidString + "}");
                 myPackage?.SetValue("SkipLoading", 1);
             };
