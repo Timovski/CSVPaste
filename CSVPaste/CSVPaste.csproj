@@ -57,6 +57,9 @@
     <Compile Include="PasteCommand.cs" />
     <Compile Include="PasteCommandPackage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TextHelper.cs" />
+    <Compile Include="ValueType.cs" />
+    <Compile Include="ValueTypeHelper.cs" />
     <Compile Include="WpfTextViewHelper.cs" />
   </ItemGroup>
   <ItemGroup>

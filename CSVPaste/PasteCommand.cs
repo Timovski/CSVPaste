@@ -100,8 +100,12 @@ namespace CSVPaste
             if (string.IsNullOrWhiteSpace(clipboardText))
                 return;
 
+            var formatedText = TextHelper.GetFormattedText(clipboardText);
+            if (string.IsNullOrWhiteSpace(formatedText))
+                return;
+
             var edit = wpfTextView.TextBuffer.CreateEdit();
-            edit.Insert(caretPosition, clipboardText);
+            edit.Insert(caretPosition, formatedText);
             edit.Apply();
         }
     }
