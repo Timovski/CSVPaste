@@ -76,7 +76,10 @@ namespace CSVPaste
 
         #endregion
 
-        public void AddSkipLoading()
+        /// <summary>
+        /// Adds the SkipLoading value back to the registry 2 seconds after it’s removed by SSMS.
+        /// </summary>
+        private void AddSkipLoading()
         {
             var timer = new Timer(2000);
             timer.AutoReset = false;
