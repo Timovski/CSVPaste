@@ -25,5 +25,14 @@ namespace CSVPaste
             textManager.GetActiveView(1, null, out textViewCurrent);
             return editor.GetWpfTextView(textViewCurrent);
         }
+
+        /// <summary>
+        /// Gets the current caret position in the <see cref="IWpfTextView"/>.
+        /// </summary>
+        /// <param name="wpfTextView">IWpfTextView of the active view.</param>
+        public static int GetCaretPosition(IWpfTextView wpfTextView)
+        {
+            return wpfTextView.Caret.Position.BufferPosition.Position;
+        }
     }
 }
