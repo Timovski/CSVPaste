@@ -36,8 +36,8 @@
          group as the part of a menu contained between two lines. The parent of a group
          must be a menu. -->
     <Groups>
-      <Group guid="guidPasteCommandPackageCmdSet" id="MyMenuGroup" priority="0x0600">
-        <Parent guid="guidSHLMainMenu" id="IDM_VS_MENU_TOOLS"/>
+      <Group guid="guidPasteCommandPackageCmdSet" id="MyMenuGroup" priority="0x0201">
+        <Parent guid="queryWindowContextCommandSet" id="queryWindowContextMenu"/>
       </Group>
     </Groups>
 
@@ -89,6 +89,10 @@
       <IDSymbol name="bmpPicX" value="4" />
       <IDSymbol name="bmpPicArrows" value="5" />
       <IDSymbol name="bmpPicStrikethrough" value="6" />
+    </GuidSymbol>
+
+    <GuidSymbol name="queryWindowContextCommandSet" value="{33F13AC3-80BB-4ECB-85BC-225435603A5E}">
+      <IDSymbol name="queryWindowContextMenu" value="0x0050"/>
     </GuidSymbol>
   </Symbols>
 </CommandTable>
