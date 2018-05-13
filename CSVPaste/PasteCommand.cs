@@ -96,8 +96,12 @@ namespace CSVPaste
             var wpfTextView = WpfTextViewHelper.GetWpfTextView(ServiceProvider);
             var caretPosition = WpfTextViewHelper.GetCaretPosition(wpfTextView);
 
+            var clipboardText = ClipboardHelper.GetText();
+            if (string.IsNullOrWhiteSpace(clipboardText))
+                return;
+
             var edit = wpfTextView.TextBuffer.CreateEdit();
-            edit.Insert(caretPosition, "dummy text...");
+            edit.Insert(caretPosition, clipboardText);
             edit.Apply();
         }
     }
