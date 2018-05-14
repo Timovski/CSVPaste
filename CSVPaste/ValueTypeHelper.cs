@@ -10,6 +10,8 @@ namespace CSVPaste
         /// <summary>
         /// Determines the <see cref="ValueType"/> of the values and the existence of a header.
         /// </summary>
+        /// <param name="values">The raw values.</param>
+        /// <param name="header">Flag indicating whether the column header was present in the values or not.</param>
         public static ValueType DetermineValuesType(string[] values, out bool header)
         {
             header = false;
@@ -75,6 +77,7 @@ namespace CSVPaste
         /// <summary>
         /// Gets the <see cref="ValueType"/> of the value.
         /// </summary>
+        /// <param name="value">The raw value.</param>
         private static ValueType GetValueType(string value)
         {
             int intValue;
