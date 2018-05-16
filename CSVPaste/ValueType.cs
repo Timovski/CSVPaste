@@ -2,7 +2,7 @@
 {
     public enum ValueType
     {
-        Int,
+        Numeric,
         Guid,
         String
     }

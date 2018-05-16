@@ -37,7 +37,7 @@ namespace CSVPaste
                     }
                 }
             }
-            else if (type == ValueType.Int)
+            else if (type == ValueType.Numeric)
             {
                 for (var i = 0; i < values.Length; i++)
                 {

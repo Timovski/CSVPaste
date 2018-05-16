@@ -80,9 +80,9 @@ namespace CSVPaste
         /// <param name="value">The raw value.</param>
         private static ValueType GetValueType(string value)
         {
-            int intValue;
-            if (int.TryParse(value, out intValue))
-                return ValueType.Int;
+            long longValue;
+            if (long.TryParse(value, out longValue))
+                return ValueType.Numeric;
 
             Guid guidValue;
             if (Guid.TryParse(value, out guidValue))
