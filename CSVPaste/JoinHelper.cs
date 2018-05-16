@@ -62,13 +62,14 @@ namespace CSVPaste
             {
                 for (var i = 0; i < values.Length; i++)
                 {
+                    var fixedValue = values[i].Replace("'", "''");
                     if (i != values.Length - 1)
                     {
-                        builder.AppendLine($"N'{values[i]}',");
+                        builder.AppendLine($"N'{fixedValue}',");
                     }
                     else
                     {
-                        builder.Append($"N'{values[i]}'");
+                        builder.Append($"N'{fixedValue}'");
                     }
                 }
             }
