@@ -54,7 +54,7 @@
           If you do not want an image next to your command, remove the Icon node /> -->
       <Button guid="guidPasteCommandPackageCmdSet" id="PasteCommandId" priority="0x0100" type="Button">
         <Parent guid="guidPasteCommandPackageCmdSet" id="MyMenuGroup" />
-        <Icon guid="guidImages" id="bmpPic1" />
+        <Icon guid="guidIcons" id="icon1" />
         <Strings>
           <ButtonText>Paste as CSV</ButtonText>
         </Strings>
@@ -69,6 +69,8 @@
             inside a button definition. An important aspect of this declaration is that the element id
             must be the actual index (1-based) of the bitmap inside the bitmap strip. -->
       <Bitmap guid="guidImages" href="Resources\PasteCommand.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough"/>
+
+      <Bitmap guid="guidIcons" href="Resources\Icon.png" usedList="icon1"/>
     </Bitmaps>
   </Commands>
 
@@ -94,5 +96,10 @@
     <GuidSymbol name="queryWindowContextCommandSet" value="{33F13AC3-80BB-4ECB-85BC-225435603A5E}">
       <IDSymbol name="queryWindowContextMenu" value="0x0050"/>
     </GuidSymbol>
+
+    <GuidSymbol name="guidIcons" value="{20C1E9DD-E9B4-4819-BAEC-F66127790A16}">
+      <IDSymbol name="icon1" value="1" />
+    </GuidSymbol>
+
   </Symbols>
 </CommandTable>
