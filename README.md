@@ -7,16 +7,16 @@ Download the latest [release](https://github.com/Timovski/CSVPaste/releases) and
 ## How to use
 Execute a query in the SSMS query window.
 
-![Execute Query](https://github.com/Timovski/Assets/blob/master/CSVPaste/Image02.png)
+![Execute Query](https://raw.githubusercontent.com/Timovski/Assets/master/CSVPaste/Image02.png)
 
 Copy the ids from the Results window.
 
-![Copy Ids](https://github.com/Timovski/Assets/blob/master/CSVPaste/Image03.png)
+![Copy Ids](https://raw.githubusercontent.com/Timovski/Assets/master/CSVPaste/Image03.png)
 
 Use the command to paste them between the parentheses of another query’s IN clause.
 
-![Paste](https://github.com/Timovski/Assets/blob/master/CSVPaste/Image04.png)
+![Paste](https://raw.githubusercontent.com/Timovski/Assets/master/CSVPaste/Image04.png)
 
-![Final Result](https://github.com/Timovski/Assets/blob/master/CSVPaste/Image05.png)
+![Final Result](https://raw.githubusercontent.com/Timovski/Assets/master/CSVPaste/Image05.png)
 
 For more information check the [Wiki](https://github.com/Timovski/CSVPaste/wiki).
