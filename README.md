@@ -1,4 +1,4 @@
-# CSVPaste
+# CSV Paste
 A simple SQL Server Management Studio (SSMS) extension for pasting data copied from the Results window as formatted comma-separated values into another query’s IN clause.
 
 ## Installing
