@@ -16,62 +16,44 @@ namespace CSVPaste
         {
             header = false;
 
+            // Determine the type of the last item (the first item from the back).
+            // If the type is text, treat all the values as text.
+            var initialType = GetValueType(values[values.Length - 1]);
+            if (initialType == ValueType.Text)
+                return ValueType.Text;
+
             // If the array contains only one element, return its type.
             if (values.Length == 1)
-                return GetValueType(values[0]);
+                return initialType;
 
-            ValueType? firstDeterminedType = null;
-            for (var i = values.Length - 1; i >= 0; i--)
+            // For every item except the first and the last, check if their type matches the initially determined one.
+            // If is doesn’t, treat all the values as text.
+            for (var i = values.Length - 2; i >= 1; i--)
             {
-                var type = GetValueType(values[i]);
-
-                // Every item except the first.
-                if (i != 0)
+                if (!EqualsValueType(values[i], initialType))
                 {
-                    // If any of the items is a string, then treat all of them as strings.
-                    if (type == ValueType.String)
-                    {
-                        return ValueType.String;
-                    }
-
-                    // If the type of the item doesn’t match the first determined type, then there are different types of items in the selection.
-                    // Treat all of them as strings.
-                    if (firstDeterminedType.HasValue)
-                    {
-                        if (firstDeterminedType != type)
-                        {
-                            return ValueType.String;
-                        }
-                    }
-                    else
-                    {
-                        firstDeterminedType = type;
-                    }
-                }
-                else // The first item.
-                {
-                    // If the first item is a string and none of the previous items is one, then the selection contains a header.
-                    // Return the type of the previous items (firstDeterminedType).
-                    if (type == ValueType.String)
-                    {
-                        header = true;
-                        return firstDeterminedType ?? ValueType.String;
-                    }
-
-                    // If the first item is not a string but it still doesn’t match the type of the previous items,
-                    // then there are different types of items in the selection.
-                    // Treat all of them as strings.
-                    if (firstDeterminedType != type)
-                    {
-                        return ValueType.String;
-                    }
-
-                    // If the type of the first item matches the type of the previous items, return the type.
-                    return firstDeterminedType.Value;
+                    return ValueType.Text;
                 }
             }
 
-            return firstDeterminedType ?? ValueType.String;
+            // Determine the type of the first item.
+            // If the first item is text but none of the previous items is, then the selection contains a header.
+            var firstItemType = GetValueType(values[0]);
+            if (firstItemType == ValueType.Text)
+            {
+                header = true;
+                return initialType;
+            }
+
+            // If the first item is not text but it still doesn’t match the type of the previous items,
+            // then there are different types of items in the selection.
+            // Treat all of them as text.
+            if (!EqualsValueType(values[0], initialType))
+            {
+                return ValueType.Text;
+            }
+
+            return initialType;
         }
 
         /// <summary>
@@ -86,9 +68,29 @@ namespace CSVPaste
 
             Guid guidValue;
             if (Guid.TryParse(value, out guidValue))
-                return ValueType.Guid;
+                return ValueType.Uniqueidentifier;
 
-            return ValueType.String;
+            return ValueType.Text;
+        }
+
+        /// <summary>
+        /// Determines whether the value is of particular <see cref="ValueType"/>.
+        /// </summary>
+        /// <param name="value">The raw value.</param>
+        /// <param name="valueType">The <see cref="ValueType"/>.</param>
+        private static bool EqualsValueType(string value, ValueType valueType)
+        {
+            switch (valueType)
+            {
+                case ValueType.Numeric:
+                    long longValue;
+                    return long.TryParse(value, out longValue);
+                case ValueType.Uniqueidentifier:
+                    Guid guidValue;
+                    return Guid.TryParse(value, out guidValue);
+            }
+
+            return true;
         }
     }
 }

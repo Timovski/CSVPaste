@@ -3,7 +3,7 @@
     public enum ValueType
     {
         Numeric,
-        Guid,
-        String
+        Uniqueidentifier,
+        Text
     }
 }
