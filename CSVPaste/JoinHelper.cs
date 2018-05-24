@@ -16,7 +16,7 @@ namespace CSVPaste
         {
             var builder = new StringBuilder();
 
-            if (type == ValueType.Uniqueidentifier)
+            if (type == ValueType.Uniqueidentifier || type == ValueType.DateTime)
             {
                 for (var i = 0; i < values.Length; i++)
                 {

@@ -62,13 +62,21 @@ namespace CSVPaste
         /// <param name="value">The raw value.</param>
         private static ValueType GetValueType(string value)
         {
-            long longValue;
-            if (long.TryParse(value, out longValue))
+            decimal decimalValue;
+            if (decimal.TryParse(value, out decimalValue))
+                return ValueType.Numeric;
+
+            double doubleValue;
+            if (double.TryParse(value, out doubleValue))
                 return ValueType.Numeric;
 
             Guid guidValue;
             if (Guid.TryParse(value, out guidValue))
                 return ValueType.Uniqueidentifier;
+
+            DateTime dateTimeValue;
+            if (DateTime.TryParse(value, out dateTimeValue))
+                return ValueType.DateTime;
 
             return ValueType.Text;
         }
@@ -83,11 +91,20 @@ namespace CSVPaste
             switch (valueType)
             {
                 case ValueType.Numeric:
-                    long longValue;
-                    return long.TryParse(value, out longValue);
+                    decimal decimalValue;
+                    var isDecimal = decimal.TryParse(value, out decimalValue);
+                    if (isDecimal)
+                        return true;
+
+                    double doubleValue;
+                    return double.TryParse(value, out doubleValue);
                 case ValueType.Uniqueidentifier:
                     Guid guidValue;
                     return Guid.TryParse(value, out guidValue);
+
+                case ValueType.DateTime:
+                    DateTime dateTimeValue;
+                    return DateTime.TryParse(value, out dateTimeValue);
             }
 
             return true;

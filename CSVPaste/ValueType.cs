@@ -4,6 +4,7 @@
     {
         Numeric,
         Uniqueidentifier,
+        DateTime,
         Text
     }
 }

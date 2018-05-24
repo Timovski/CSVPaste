@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Id="CSVPaste.Company.0424e01c-506f-4a83-82f8-0a1c0a1e30ed" Version="1.0.0" Language="en-US" Publisher="Stefan Timovski" />
+    <Identity Id="CSVPaste.Company.0424e01c-506f-4a83-82f8-0a1c0a1e30ed" Version="1.0.1" Language="en-US" Publisher="Stefan Timovski" />
     <DisplayName>CSV Paste</DisplayName>
     <Description xml:space="preserve">An extension for pasting the contents of the clipboard as formatted comma-separated values at the current caret position. This extension is suitable for placing values within the parentheses of an SQL query’s IN clause.</Description>
     <MoreInfo>https://github.com/Timovski/CSVPaste</MoreInfo>
