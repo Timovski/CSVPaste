@@ -53,15 +53,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="ClipboardHelper.cs" />
-    <Compile Include="PasteCommand.cs" />
-    <Compile Include="PasteCommandPackage.cs" />
+    <Compile Include="Helpers\ClipboardHelper.cs" />
+    <Compile Include="PasteCommand\PasteCommand.cs" />
+    <Compile Include="PasteCommand\PasteCommandPackage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="JoinHelper.cs" />
-    <Compile Include="TextHelper.cs" />
+    <Compile Include="Helpers\JoinHelper.cs" />
+    <Compile Include="Helpers\TextHelper.cs" />
     <Compile Include="ValueType.cs" />
-    <Compile Include="ValueTypeHelper.cs" />
-    <Compile Include="WpfTextViewHelper.cs" />
+    <Compile Include="Helpers\ValueTypeHelper.cs" />
+    <Compile Include="Helpers\WpfTextViewHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Key.snk" />
@@ -71,7 +71,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <VSCTCompile Include="PasteCommandPackage.vsct">
+    <VSCTCompile Include="PasteCommand\PasteCommandPackage.vsct">
       <ResourceName>Menus.ctmenu</ResourceName>
       <SubType>Designer</SubType>
     </VSCTCompile>

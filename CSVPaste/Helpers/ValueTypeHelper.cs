@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CSVPaste
+namespace CSVPaste.Helpers
 {
     /// <summary>
     /// Helper class for working with the value types.
@@ -12,6 +12,7 @@ namespace CSVPaste
         /// </summary>
         /// <param name="values">The raw values.</param>
         /// <param name="header">Flag indicating whether the column header was present in the values or not.</param>
+        /// <returns>The determined <see cref="ValueType"/> for all the values.</returns>
         public static ValueType DetermineValuesType(string[] values, out bool header)
         {
             header = false;
@@ -60,6 +61,7 @@ namespace CSVPaste
         /// Gets the <see cref="ValueType"/> of the value.
         /// </summary>
         /// <param name="value">The raw value.</param>
+        /// <returns>The determined <see cref="ValueType"/> for the value.</returns>
         private static ValueType GetValueType(string value)
         {
             decimal decimalValue;
@@ -86,6 +88,7 @@ namespace CSVPaste
         /// </summary>
         /// <param name="value">The raw value.</param>
         /// <param name="valueType">The <see cref="ValueType"/>.</param>
+        /// <returns>true if the <param name="value" /> parameter is of the provided <see cref="ValueType"/>.</returns>
         private static bool EqualsValueType(string value, ValueType valueType)
         {
             switch (valueType)

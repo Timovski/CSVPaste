@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace CSVPaste
+namespace CSVPaste.Helpers
 {
     /// <summary>
     /// Helper class for formatting the raw clipboard text.
@@ -12,6 +12,7 @@ namespace CSVPaste
         /// Gets the values as a formatted comma separated list.
         /// </summary>
         /// <param name="text">The raw clipboard text.</param>
+        /// <returns>The final formatted string ready to be pasted.</returns>
         public static string GetFormattedText(string text)
         {
             var allValues = text.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
@@ -35,6 +36,7 @@ namespace CSVPaste
         /// Returns a list without the NULL values.
         /// </summary>
         /// <param name="values">The raw values.</param>
+        /// <returns>A new array without the NULL values.</returns>
         private static string[] RemoveNullValues(string[] values)
         {
             var filteredValues = new List<string>();

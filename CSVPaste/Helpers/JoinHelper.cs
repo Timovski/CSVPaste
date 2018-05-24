@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace CSVPaste
+namespace CSVPaste.Helpers
 {
     /// <summary>
     /// Helper class for joining the raw values.
@@ -12,6 +12,7 @@ namespace CSVPaste
         /// </summary>
         /// <param name="values">The raw values.</param>
         /// <param name="type">The values type.</param>
+        /// <returns>A string value consisting of all the values formatted and joined together.</returns>
         public static string JoinValues(string[] values, ValueType type)
         {
             var builder = new StringBuilder();
